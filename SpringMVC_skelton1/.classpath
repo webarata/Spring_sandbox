@@ -5,21 +5,41 @@
 			<attribute name="FROM_GRADLE_MODEL" value="true"/>
 		</attributes>
 	</classpathentry>
+	<classpathentry kind="src" path="src/main/resources">
+		<attributes>
+			<attribute name="FROM_GRADLE_MODEL" value="true"/>
+		</attributes>
+	</classpathentry>
 	<classpathentry kind="src" path="src/test/java">
+		<attributes>
+			<attribute name="FROM_GRADLE_MODEL" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="src" path="src/test/resources">
 		<attributes>
 			<attribute name="FROM_GRADLE_MODEL" value="true"/>
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="con" path="org.eclipse.buildship.core.gradleclasspathcontainer"/>
-	<classpathentry kind="output" path="bin"/>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.web.container"/>
+	<classpathentry kind="output" path="bin"/>
 	<classpathentry sourcepath="/Users/arata/.gradle/caches/modules-2/files-2.1/org.springframework/spring-webmvc/4.2.3.RELEASE/d2ccd08b31ae2582fc499d0e92178e9a133ae27d/spring-webmvc-4.2.3.RELEASE-sources.jar" kind="lib" path="/Users/arata/.gradle/caches/modules-2/files-2.1/org.springframework/spring-webmvc/4.2.3.RELEASE/46803840259c6d51c531e4f07f4213d758c6ee1d/spring-webmvc-4.2.3.RELEASE.jar">
 		<attributes>
 			<attribute name="org.eclipse.jst.component.nondependency" value=""/>
 		</attributes>
 	</classpathentry>
 	<classpathentry sourcepath="/Users/arata/.gradle/caches/modules-2/files-2.1/javax.servlet/jstl/1.2/2f5877ef15adb721421e80f5aa2b6fe069eec8ed/jstl-1.2-sources.jar" kind="lib" path="/Users/arata/.gradle/caches/modules-2/files-2.1/javax.servlet/jstl/1.2/74aca283cd4f4b4f3e425f5820cda58f44409547/jstl-1.2.jar">
+		<attributes>
+			<attribute name="org.eclipse.jst.component.nondependency" value=""/>
+		</attributes>
+	</classpathentry>
+	<classpathentry sourcepath="/Users/arata/.gradle/caches/modules-2/files-2.1/org.slf4j/jcl-over-slf4j/1.7.13/988decf2bd4133c233f1e63f0da7368ee78c6405/jcl-over-slf4j-1.7.13-sources.jar" kind="lib" path="/Users/arata/.gradle/caches/modules-2/files-2.1/org.slf4j/jcl-over-slf4j/1.7.13/d78d2242e14e4182625152d225f76ae52b43491d/jcl-over-slf4j-1.7.13.jar">
+		<attributes>
+			<attribute name="org.eclipse.jst.component.nondependency" value=""/>
+		</attributes>
+	</classpathentry>
+	<classpathentry sourcepath="/Users/arata/.gradle/caches/modules-2/files-2.1/ch.qos.logback/logback-classic/1.1.3/f4915df0360e7529c61f9e78ef3a06c19238e62e/logback-classic-1.1.3-sources.jar" kind="lib" path="/Users/arata/.gradle/caches/modules-2/files-2.1/ch.qos.logback/logback-classic/1.1.3/d90276fff414f06cb375f2057f6778cd63c6082f/logback-classic-1.1.3.jar">
 		<attributes>
 			<attribute name="org.eclipse.jst.component.nondependency" value=""/>
 		</attributes>
@@ -60,6 +80,16 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry sourcepath="/Users/arata/.gradle/caches/modules-2/files-2.1/org.springframework/spring-web/4.2.3.RELEASE/1604486372a34b5dec0d21bfa5c94e855413f71c/spring-web-4.2.3.RELEASE-sources.jar" kind="lib" path="/Users/arata/.gradle/caches/modules-2/files-2.1/org.springframework/spring-web/4.2.3.RELEASE/98eea3fbe01450fff18aeb7e6003f80a879a049e/spring-web-4.2.3.RELEASE.jar">
+		<attributes>
+			<attribute name="org.eclipse.jst.component.nondependency" value=""/>
+		</attributes>
+	</classpathentry>
+	<classpathentry sourcepath="/Users/arata/.gradle/caches/modules-2/files-2.1/org.slf4j/slf4j-api/1.7.13/96e785df399a4e1a6c030877097807b7e18520cc/slf4j-api-1.7.13-sources.jar" kind="lib" path="/Users/arata/.gradle/caches/modules-2/files-2.1/org.slf4j/slf4j-api/1.7.13/7fcf30c25b8f4a9379b9dad0d3f487b25272c026/slf4j-api-1.7.13.jar">
+		<attributes>
+			<attribute name="org.eclipse.jst.component.nondependency" value=""/>
+		</attributes>
+	</classpathentry>
+	<classpathentry sourcepath="/Users/arata/.gradle/caches/modules-2/files-2.1/ch.qos.logback/logback-core/1.1.3/a69d9a62a693f391ad19d8ac19fa85a7a60cbc7c/logback-core-1.1.3-sources.jar" kind="lib" path="/Users/arata/.gradle/caches/modules-2/files-2.1/ch.qos.logback/logback-core/1.1.3/e3c02049f2dbbc764681b40094ecf0dcbc99b157/logback-core-1.1.3.jar">
 		<attributes>
 			<attribute name="org.eclipse.jst.component.nondependency" value=""/>
 		</attributes>
