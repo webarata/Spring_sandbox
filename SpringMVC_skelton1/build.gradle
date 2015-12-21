@@ -1,0 +1,34 @@
+apply plugin: 'war'
+apply plugin: 'eclipse-wtp'
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile 'org.springframework:spring-webmvc:4.2.3.RELEASE'
+    compile 'javax.servlet:jstl:1.2'
+    providedCompile 'javax.servlet:javax.servlet-api:3.1.0'
+    providedCompile 'javax.servlet.jsp:javax.servlet.jsp-api:2.3.1'
+    providedCompile 'javax.el:javax.el-api:3.0.0'
+}
+
+eclipse {
+    project {
+        name = 'gradle-wtp-sample'
+    }
+
+    wtp {
+        facet {
+            facet name: 'jst.java', version: '1.8'
+            facet name: 'jst.web', version: '3.1'
+        }
+        component {
+            deployName = 'Spring MVC skelton1'
+            contextPath  = 'SpringMVC_skelton1'
+        }
+    }
+}
