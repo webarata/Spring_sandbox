@@ -20,7 +20,7 @@ dependencies {
 
 eclipse {
     project {
-        name = 'gradle-wtp-sample'
+        name = 'SpringMVC_skelton1'
     }
 
     wtp {
