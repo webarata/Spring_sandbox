@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:sec="http://www.springframework.org/schema/security"
+ xsi:schemaLocation="http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans.xsd
+http://www.springframework.org/schema/security
+http://www.springframework.org/schema/security/spring-security.xsd">
+ <beans>
+  <sec:http>
+   <sec:form-login login-page="/login" />
+   <sec:logout />
+   <sec:intercept-url pattern="/login" access="permitAll" />
+   <sec:intercept-url pattern="/**" access="isAuthenticated()" />
+   <sec:logout />
+
+   <!-- セキュリティ対策 -->
+   <!-- CSRF対策デフォルトON -->
+   <!-- URL RewritingデフォルトON_ -->
+   <!-- セッション固定攻撃 session-fixation-protection -->
+   <!-- 無効なセッションを使ったリクエストの検知 invalid-session-url -->
+   <sec:session-management
+    session-fixation-protection="changeSessionId" invalid-session-url="/error/invalidSession " />
+
+   <!-- セキュリティヘッダー -->
+   <sec:headers>
+    <!-- HTTPSのコンテンツがブラウザにキャッシュできないようにする -->
+    <!-- <sec:cache-control /> -->
+    <!-- フレーム内でコンテンツの表示を許可しない -->
+    <sec:frame-options />
+    <!-- Content-Typeヘッダーの内容を無視しない -->
+    <sec:content-type-options />
+    <!-- ブラウザのXSSフィルタ機能を使用する -->
+    <sec:xss-protection />
+    <!-- 中間者攻撃の防御（Strict-Transport-Security） -->
+    <sec:hsts />
+   </sec:headers>
+  </sec:http>
+ </beans>
+ 
+ <beans profile="product">
+  <sec:authentication-manager>
+   <sec:authentication-provider
+    user-service-ref="accountUserDetailsService" />
+  </sec:authentication-manager>
+ </beans>
+ 
+ <beans profile="test">
+  <sec:authentication-manager>
+   <sec:authentication-provider>
+    <sec:user-service>
+     <sec:user name="admin" password="admin" authorities="ROLE_ADMIN" />
+     <sec:user name="user" password="user" authorities="ROLE_APP1, ROLE_APP2" />
+    </sec:user-service>
+   </sec:authentication-provider>
+  </sec:authentication-manager>
+ </beans>
+</beans>

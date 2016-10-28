@@ -1,0 +1,93 @@
+apply plugin: 'war'
+apply plugin: 'eclipse-wtp'
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile 'org.springframework:spring-webmvc:4.3.3.RELEASE'
+    compile 'org.springframework:spring-jdbc:4.3.3.RELEASE'
+    
+    // Spring Security
+    compile 'org.springframework.security:spring-security-web:4.1.3.RELEASE'
+    compile 'org.springframework.security:spring-security-config:4.1.3.RELEASE'
+    // JSPのみが必要な場合のみ
+    // compile 'org.springframework.security:spring-security-taglibs:4.1.3.RELEASE'
+    
+    // JSPが必要な場合のみ
+    // compile 'javax.servlet:jstl:1.2'
+    
+    // AOPを使用する場合に必要
+    compile 'org.aspectj:aspectjrt:1.8.9'
+    compile 'org.aspectj:aspectjweaver:1.8.9'
+
+    compile 'org.thymeleaf:thymeleaf-spring4:2.1.5.RELEASE'
+    compile 'nz.net.ultraq.thymeleaf:thymeleaf-layout-dialect:1.4.0'
+    compile 'org.thymeleaf.extras:thymeleaf-extras-springsecurity4:2.1.2.RELEASE'
+    compile 'org.thymeleaf.extras:thymeleaf-extras-java8time:2.1.0.RELEASE'
+
+    compile 'org.slf4j:jcl-over-slf4j:1.7.21'
+    compile 'ch.qos.logback:logback-classic:1.1.7'
+    compile 'com.h2database:h2:1.4.192'
+    
+    providedCompile 'javax.servlet:javax.servlet-api:3.1.0'
+    providedCompile 'javax.servlet.jsp:javax.servlet.jsp-api:2.3.1'
+    providedCompile 'javax.el:javax.el-api:3.0.0'
+    
+    testCompile 'junit:junit:4.12'
+    testCompile 'org.mockito:mockito-core:2.2.0'
+    testCompile 'org.springframework:spring-test:4.3.3.RELEASE'
+    testCompile 'org.springframework.security:spring-security-test:4.1.3.RELEASE'
+}
+
+eclipse {
+    project {
+        name = 'MVC_test'
+    }
+
+    wtp {
+        facet {
+            facet name: 'jst.java', version: '1.8'
+            facet name: 'jst.web', version: '3.1'
+        }
+        component {
+            deployName = 'MVC_test'
+            contextPath  = 'MVC_test'
+        }
+    }
+}
+
+apply plugin: 'findbugs'
+
+tasks.withType(FindBugs) {
+    reports {
+        xml.enabled = false
+        html.enabled = true
+    }
+}
+
+task findbugsConvertUtf8 << {
+    def filename="${project.rootDir}/build/reports/findbugs/main.html"
+    def file = new File(filename)
+    def text = file.getText()
+    text = text.replaceAll(/<head>/, "<head>\n<meta http-equiv='Content-Type' content='text/html; charset=UTF-8'>")
+
+    def fw=new File(filename).newWriter()
+    fw.writeLine(text)
+    fw.close()
+}
+
+apply plugin: 'jacoco'
+ 
+jacocoTestReport {
+    reports {
+        html.enabled = true
+        xml.enabled = true
+        csv.enabled = true
+    }
+}
+

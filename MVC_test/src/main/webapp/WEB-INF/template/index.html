@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/html"
+ xmlns:th="http://www.thymeleaf.org"
+ xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+ lang="ja">
+ <head>
+  <meta charset="utf-8" />
+  <title>メニュー</title>
+ </head>
+ <body>
+  <h1>メニュー</h1>
+  <form action="/login" th:action="@{/logout}" method="post">
+   <button>ログアウト</button>
+  </form>
+  <h3>ようこそ <span sec:authentication="principal.account.lastName">山田さん</span></h3>
+  <ul>
+   <li sec:authorize="hasRole('ADMIN')">admin</li>
+   <li sec:authorize="hasRole('APP1')">app1</li>
+   <li sec:authorize="hasRole('APP2')">app2</li>
+   <li sec:authorize="hasRole('APP3')">app3</li>
+  </ul>
+ </body>
+</html>
