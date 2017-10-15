@@ -1,6 +1,6 @@
 package com.example.mybatis;
 
-import com.sun.org.apache.xpath.internal.operations.Bool;
+import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 
@@ -12,4 +12,7 @@ public interface BookDao {
 
     @Select("SELECT * FROM book")
     public List<Book> selectAll();
+
+    @Insert("INSERT INTO book VALUES(#{bookId}, #{bookName}, #{author}, #{price})")
+    public int insert(Book book);
 }

@@ -8,11 +8,8 @@ public class Main {
         ApplicationContext ctx = new ClassPathXmlApplicationContext("classpath:/META-INF/application-context.xml");
         BookDao bookDao = ctx.getBean(BookDao.class);
 
-        System.out.println("=== book_id=101");
-        System.out.println(bookDao.select(101));
-
-        System.out.println("    book_id=103");
-        System.out.println(bookDao.select(103));
+        Book book = new Book(501, "はじめてのMyBatis", "バティスタ", 2500);
+        System.out.println("挿入件数: " + bookDao.insert(book));
 
         System.out.println("=== 一覧の取得");
         bookDao.selectAll().forEach(System.out::println);
