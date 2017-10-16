@@ -1,5 +1,6 @@
-package com.example.mybatis;
+package com.example.mybatis.mapper;
 
+import com.example.mybatis.Book;
 import com.sun.org.apache.xpath.internal.operations.Bool;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;

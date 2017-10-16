@@ -1,16 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xmlns:context="http://www.springframework.org/schema/context"
        xmlns:jdbc="http://www.springframework.org/schema/jdbc"
        xmlns:mybatis="http://mybatis.org/schema/mybatis-spring"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
-http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
 http://www.springframework.org/schema/jdbc http://www.springframework.org/schema/jdbc/spring-jdbc.xsd
 http://mybatis.org/schema/mybatis-spring http://mybatis.org/schema/mybatis-spring.xsd">
- <context:annotation-config />
- <context:component-scan base-package="com.example.mybatis" />
-
  <jdbc:embedded-database id="dataSource" type="H2">
   <jdbc:script location="classpath:/META-INF/db/schema.sql" />
   <jdbc:script location="classpath:/META-INF/db/init-data.sql" />
@@ -21,5 +16,5 @@ http://mybatis.org/schema/mybatis-spring http://mybatis.org/schema/mybatis-sprin
   <property name="configLocation" value="classpath:/META-INF/mybatis-config.xml" />
  </bean>
 
- <mybatis:scan base-package="com.example.mybatis" />
+ <mybatis:scan base-package="com.example.mybatis.mapper" />
 </beans>

@@ -1,5 +1,6 @@
 package com.example.mybatis;
 
+import com.example.mybatis.mapper.BookDao;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
