@@ -6,7 +6,4 @@ import org.apache.ibatis.annotations.Param;
 
 public interface BookMapper {
     public Book select(@Param("bookId") Integer bookId);
-
-    @Insert("INSERT INTO book VALUES(#{bookId}, #{bookName}, #{author}, #{price})")
-    public int insert(Book book);
 }

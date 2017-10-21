@@ -18,7 +18,6 @@ public class Main {
         try (SqlSession session = sqlSessionFactory.openSession()) {
             BookMapper bookMapper = session.getMapper(BookMapper.class);
             Book book = bookMapper.select(101);
-            System.out.println(book);
         }
     }
 }

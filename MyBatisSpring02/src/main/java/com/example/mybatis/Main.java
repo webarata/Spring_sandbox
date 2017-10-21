@@ -26,7 +26,7 @@ public class Main {
             Book book = bookMapper.select(101);
 
             Book book2 = new Book(300, "テスト", "test", 3000);
-            bookMapper.insert(book2);
+            session.insert("com.example.mybatis.mapper.BookMapper.insert", book2);
             session.commit();
         }
     }
