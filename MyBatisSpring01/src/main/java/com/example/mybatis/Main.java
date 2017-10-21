@@ -19,6 +19,5 @@ public class Main {
             Book book = bookMapper.select(101);
             System.out.println(book);
         }
-
     }
 }
