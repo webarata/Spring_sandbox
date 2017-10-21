@@ -1,22 +1,33 @@
 package com.example.mybatis;
 
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
+import com.example.mybatis.mapper.BookMapper;
+import org.apache.ibatis.io.Resources;
+import org.apache.ibatis.session.SqlSession;
+import org.apache.ibatis.session.SqlSessionFactory;
+import org.apache.ibatis.session.SqlSessionFactoryBuilder;
+
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.Properties;
 
 public class Main {
-    public static void main(String[] args) {
-        ApplicationContext ctx = new ClassPathXmlApplicationContext("classpath:/META-INF/application-context.xml");
-        BookDao bookDao = ctx.getBean(BookDao.class);
+    public static void main(String[] args) throws IOException {
+        String resource = "META-INF/mybatis-config.xml";
+        InputStream is = Resources.getResourceAsStream(resource);
 
-        Book insertBook = new Book(501, "はじめてのMyBatis", "バティスタ", 2500);
-        System.out.println("挿入件数: " + bookDao.insert(insertBook));
+        InputStream isProp = Resources.getResourceAsStream("config.properties");
+        Properties properties = new Properties();
+        properties.load(isProp);
 
-        Book updateBook = new Book();
-        updateBook.setBookId(101);
-        updateBook.setPrice(9999);
-        System.out.println("更新件数: " + bookDao.update(updateBook));
+        SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(is, "development", properties);
 
-        System.out.println("=== 一覧の取得");
-        bookDao.selectAll().forEach(System.out::println);
+        try (SqlSession session = sqlSessionFactory.openSession()) {
+            BookMapper bookMapper = session.getMapper(BookMapper.class);
+            Book book = bookMapper.select(101);
+
+            Book book2 = new Book(300, "テスト", "test", 3000);
+            bookMapper.insert(book2);
+            session.commit();
+        }
     }
 }
