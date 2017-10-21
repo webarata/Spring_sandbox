@@ -11,13 +11,14 @@ import java.io.InputStream;
 
 public class Main {
     public static void main(String[] args) throws IOException {
-        String resource = "META-INF/mybatis-config.xml";
-        InputStream is = Resources.getResourceAsStream(resource);
-        SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(is);
+        try (InputStream is = Main.class.getResourceAsStream("/META-INF/mybatis-config.xml")) {
+            SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(is);
 
-        try (SqlSession session = sqlSessionFactory.openSession()) {
-            BookMapper bookMapper = session.getMapper(BookMapper.class);
-            Book book = bookMapper.select(101);
+            try (SqlSession session = sqlSessionFactory.openSession()) {
+                BookMapper bookMapper = session.getMapper(BookMapper.class);
+                Book book = bookMapper.select(101);
+                System.out.println(book);
+            }
         }
     }
 }
