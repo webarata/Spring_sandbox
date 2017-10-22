@@ -23,11 +23,8 @@ public class Main {
         }
 
         try (SqlSession session = sqlSessionFactory.openSession()) {
-            BookMapper bookMapper = session.getMapper(BookMapper.class);
-            Book book = bookMapper.select(101);
-
-            Book book2 = new Book(300, "テスト", "test", 3000);
-            session.insert("com.example.mybatis.mapper.BookMapper.insert", book2);
+            Book book = new Book(300, "テスト", "test", 3000);
+            session.insert("com.example.mybatis.mapper.BookMapper.insert", book);
             session.commit();
         }
     }
