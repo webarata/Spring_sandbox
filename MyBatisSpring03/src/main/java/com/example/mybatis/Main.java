@@ -11,7 +11,6 @@ import java.util.Properties;
 
 public class Main {
     public static void main(String[] args) throws IOException {
-        Properties properties = new Properties();
         SqlSessionFactory sqlSessionFactory;
         try (InputStream is = Main.class.getResourceAsStream("/META-INF/mybatis-config.xml")) {
             sqlSessionFactory = new SqlSessionFactoryBuilder().build(is);
