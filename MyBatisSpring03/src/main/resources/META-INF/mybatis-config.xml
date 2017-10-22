@@ -6,6 +6,7 @@
  <settings>
   <setting name="logPrefix" value="[MyBatis]" />
   <setting name="mapUnderscoreToCamelCase" value="true" />
+  <setting name="autoMappingUnknownColumnBehavior" value="FAILING" />
  </settings>
  <environments default="development">
   <environment id="development">

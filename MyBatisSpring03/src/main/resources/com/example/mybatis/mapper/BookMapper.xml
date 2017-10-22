@@ -4,6 +4,6 @@
  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.example.mybatis.mapper.BookMapper">
  <select id="select" resultType="com.example.mybatis.Book">
- SELECT book_id, book_name, author, price FROM book WHERE book_id = #{bookId}
+ SELECT book_id, book_name, author, price, price AS dummy_price FROM book WHERE book_id = #{bookId}
  </select>
 </mapper>
